@@ -1,0 +1,4 @@
+{
+    wifiname = "";
+    wifipass = "";
+}
