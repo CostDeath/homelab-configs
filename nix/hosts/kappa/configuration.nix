@@ -16,7 +16,7 @@
   # Networking
   networking.hostName = "kappa";
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   system.stateVersion = "25.11";

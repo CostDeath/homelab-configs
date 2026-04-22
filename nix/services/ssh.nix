@@ -16,4 +16,6 @@
   users.users.cost.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILypGHkEy8mVsmK9QxCxcsgEuWbQ5FbgqhfPsEEEi/DD Cost@DESKTOP-1N571BP"
   ];
+
+  networking.firewall.allowedTCPPorts = [ 22 ];
 }
