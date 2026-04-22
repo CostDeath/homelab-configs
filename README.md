@@ -13,8 +13,8 @@ The configs include some common modules which can be reused across systems, as w
 
 Run the following command from the repository directory
 ```sh
-tar -cjf ~/nixos_backup.tar.bz2 etc/nixos/*
-rm -r etc/nixos/*
-ln -s nix/hosts/$(hostname)/configuration.nix etc/nixos/
+tar -cjf ~/nixos_backup.tar.bz2 /etc/nixos/*
+rm -r /etc/nixos/*
+ln -sf "$(pwd)/nix/hosts/$(hostname)/configuration.nix" /etc/nixos/
 nixos-rebuild switch
 ```

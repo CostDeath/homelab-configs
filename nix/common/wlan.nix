@@ -1,6 +1,6 @@
 {config, pkgs, ...}:
 
-let inherit (import ./variables.nix) wifiname wifipass;
+let inherit (import ../variables.nix) wifiname wifipass;
 
 in {
 
@@ -8,7 +8,7 @@ in {
     networking.wireless.enable = true;
 
     networking.wireless.networks = {
-      wifiname = {
+      "${wifiname}" = {
         psk = wifipass;
       };
     };
