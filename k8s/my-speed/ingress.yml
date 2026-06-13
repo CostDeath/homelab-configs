@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: my-speed-ingress
   annotations:
-    kubernetes.io/ingress.class: "traefik"
+    kubernetes.io/ingressClassName: "traefik"
     traefik.ingress.kubernetes.io/router.tls: "false"
 spec:
   rules:
@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: my-speed
+                name: my-speed-service
                 port:
                   number: 5216
