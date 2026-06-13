@@ -17,7 +17,7 @@
   # Networking
   networking.hostName = "kappa";
   networking.firewall.enable = true;
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 80 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   services.k3s.clusterInit = true;

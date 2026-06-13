@@ -11,7 +11,7 @@ The configs include some common modules which can be reused across systems, as w
 
 ### Installation
 
-Run the following command from the repository directory
+Run the following commands from the repository directory:
 ```sh
 tar -cjf ~/nixos_backup.tar.bz2 /etc/nixos/*
 rm -r /etc/nixos/*

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-speed-deployment
+  labels:
+    app: my-speed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-speed
+  template:
+    metadata:
+      labels:
+        app: my-speed
+    spec:
+      containers:
+        - name: my-speed
+          image: germannewsmaker/myspeed:latest
+          ports:
+            - containerPort: 5216
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /api/speedtests/status
+              port: http
+            initialDelaySeconds: 90
+            periodSeconds: 60
+            timeoutSeconds: 5
+          startupProbe:
+            httpGet:
+              path: /api/speedtests/status
+              port: http
+            periodSeconds: 10
+            failureThreshold: 6
