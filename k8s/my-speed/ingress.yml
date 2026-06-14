@@ -7,9 +7,10 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "false"
 spec:
   rules:
-    - http:
+    - host: speed.kappa.costwynn.xyz
+      http:
         paths:
-          - path: /speed
+          - path: /
             pathType: Prefix
             backend:
               service:
