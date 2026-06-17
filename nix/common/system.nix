@@ -36,10 +36,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Allow NFS filesystems
+  boot.supportedFilesystems = [ "nfs" ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim wget git btop
+    vim wget git btop nfs-utils
   ];
 
   # Disable default lid behaviour
