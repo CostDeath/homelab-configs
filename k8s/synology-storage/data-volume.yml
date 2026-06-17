@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: 10Ti
   volumeMode: Filesystem
-  accessModes: [- ReadWriteMany]
+  accessModes: [ ReadWriteMany ]
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: 192.168.68.71
@@ -17,7 +17,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: k8s-data-pvc
 spec:
-  accessModes: [- ReadWriteMany]
+  accessModes: [ ReadWriteMany ]
   storageClassName: ""
   resources:
     requests:
