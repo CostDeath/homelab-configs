@@ -14,22 +14,40 @@ spec:
       labels:
         app: my-speed
     spec:
+      securityContext:
+        runAsUser: 1027
+        runAsGroup: 100
       containers:
         - name: my-speed
           image: germannewsmaker/myspeed:latest
           ports:
             - containerPort: 5216
               name: http
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          volumeMounts:
+            - mountPath: /myspeed/data
+              name: k8s-data-volume
+              subPath: myspeed/data
           livenessProbe:
             httpGet:
-              path: /api/speedtests/status
+              path: /
               port: http
             initialDelaySeconds: 90
             periodSeconds: 60
             timeoutSeconds: 5
           startupProbe:
             httpGet:
-              path: /api/speedtests/status
+              path: /
               port: http
             periodSeconds: 10
             failureThreshold: 6
+      volumes:
+        - name: k8s-data-volume
+          persistentVolumeClaim:
+            claimName: k8s-data-pvc
