@@ -10,6 +10,15 @@ in {
     token = k3s_token;
   };
 
+  # Add services required for NFS to service PATH variable
+  systemd.services.k3s = {
+    path = with pkgs; [
+      nfs-utils
+      util-linux
+      bash
+    ];
+  };
+
   networking.firewall.allowedTCPPorts = [
     6443 # k3s API server
     2379 2380 # etcd
